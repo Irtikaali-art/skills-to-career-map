@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Skill to Career Map</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:30px;">
+
+<h1>Skill to Career Map</h1>
+
+<input id="interest"
+placeholder="Enter your interest">
+
+<button onclick="findCareer()">
+Find Career
+</button>
+
+<h2 id="result"></h2>
+
+<script>
+
+function findCareer(){
+
+let interest =
+document.getElementById("interest")
+.value.toLowerCase();
+
+let career="";
+
+if(interest.includes("coding")){
+career="Software Developer";
+}
+else if(interest.includes("gaming")){
+career="Game Developer";
+}
+else if(interest.includes("art")){
+career="Graphic Designer";
+}
+else{
+career="Try exploring different skills";
+}
+
+document.getElementById("result")
+.innerHTML=career;
+
+}
+
+</script>
+
+</body>
+</html>
