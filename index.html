@@ -2,46 +2,141 @@
 <html>
 <head>
 <title>Skill to Career Map</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f7ff;
+text-align:center;
+padding:30px;
+}
+
+.container{
+background:white;
+width:500px;
+margin:auto;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 15px gray;
+}
+
+h1{
+color:#2563eb;
+}
+
+input{
+padding:12px;
+width:70%;
+border-radius:8px;
+border:1px solid gray;
+}
+
+button{
+padding:12px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+.card{
+
+margin-top:20px;
+padding:20px;
+border-radius:10px;
+background:#e8f0ff;
+
+}
+
+</style>
+
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:30px;">
+<body>
 
-<h1>Skill to Career Map</h1>
+<div class="container">
+
+<h1>🚀 Skill to Career Map</h1>
+
+<p>Enter your interest</p>
 
 <input id="interest"
-placeholder="Enter your interest">
+placeholder="coding, gaming, art, science">
+
+<br><br>
 
 <button onclick="findCareer()">
-Find Career
+
+Find My Career
+
 </button>
 
-<h2 id="result"></h2>
+<div class="card">
+
+<h2 id="career"></h2>
+
+<p id="roadmap"></p>
+
+</div>
+
+</div>
 
 <script>
 
 function findCareer(){
 
-let interest =
+let interest=
 document.getElementById("interest")
 .value.toLowerCase();
 
 let career="";
+let roadmap="";
 
 if(interest.includes("coding")){
-career="Software Developer";
-}
-else if(interest.includes("gaming")){
-career="Game Developer";
-}
-else if(interest.includes("art")){
-career="Graphic Designer";
-}
-else{
-career="Try exploring different skills";
+
+career="💻 Software Developer";
+
+roadmap="Learn HTML → CSS → JavaScript → Build Projects";
+
 }
 
-document.getElementById("result")
-.innerHTML=career;
+else if(interest.includes("gaming")){
+
+career="🎮 Game Developer";
+
+roadmap="Learn game design → Unity → Build games";
+
+}
+
+else if(interest.includes("art")){
+
+career="🎨 Graphic Designer";
+
+roadmap="Learn Canva → Photoshop → Design projects";
+
+}
+
+else if(interest.includes("science")){
+
+career="🔬 Scientist";
+
+roadmap="Study science → Research → Experiments";
+
+}
+
+else{
+
+career="❓ Explore different interests";
+
+roadmap="Try coding, art, science or gaming";
+
+}
+
+document.getElementById("career").innerHTML=career;
+
+document.getElementById("roadmap").innerHTML=roadmap;
 
 }
 
