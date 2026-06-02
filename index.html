@@ -1,83 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Skill to Career Map</title>
+<title>Skill To Career Map</title>
 
 <style>
 
 body{
-font-family:Arial;
-background:#f2f7ff;
-text-align:center;
-padding:30px;
+font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+
+background:linear-gradient(135deg,#0f172a,#2563eb,#9333ea);
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .container{
-background:white;
-width:500px;
-margin:auto;
-padding:30px;
-border-radius:15px;
-box-shadow:0 0 15px gray;
-}
 
-h1{
-color:#2563eb;
+width:90%;
+max-width:900px;
+
+padding:30px;
+
+background:rgba(255,255,255,0.15);
+
+backdrop-filter:blur(15px);
+
+border-radius:20px;
+
+color:white;
+
+box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+
+text-align:center;
+
 }
 
 input{
-padding:12px;
+
 width:70%;
-border-radius:8px;
-border:1px solid gray;
+padding:15px;
+
+border-radius:10px;
+border:none;
+
+font-size:16px;
+
 }
 
 button{
-padding:12px;
+
+padding:15px 20px;
+
 border:none;
-background:#2563eb;
-color:white;
-border-radius:8px;
+border-radius:10px;
+
 cursor:pointer;
+
+font-size:16px;
+
 }
 
-.card{
+.result{
 
 margin-top:20px;
+
 padding:20px;
-border-radius:10px;
-background:#e8f0ff;
+
+background:rgba(255,255,255,0.2);
+
+border-radius:15px;
+
+text-align:left;
 
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>🚀 Skill to Career Map</h1>
+<h1>🚀 Skill To Career Map</h1>
 
-<p>Enter your interest</p>
+<p>Search: coding, gaming, science, art</p>
 
-<input id="interest"
-placeholder="coding, gaming, art, science">
-
-<br><br>
+<input
+id="interest"
+placeholder="Enter interest">
 
 <button onclick="findCareer()">
-
-Find My Career
-
+Search
 </button>
 
-<div class="card">
+<div class="result"
+id="output">
 
-<h2 id="career"></h2>
-
-<p id="roadmap"></p>
+Enter something to begin
 
 </div>
 
@@ -87,56 +111,131 @@ Find My Career
 
 function findCareer(){
 
-let interest=
-document.getElementById("interest")
+let interest=document
+.getElementById("interest")
 .value.toLowerCase();
 
-let career="";
-let roadmap="";
+let result="";
 
 if(interest.includes("coding")){
 
-career="💻 Software Developer";
+result=`
 
-roadmap="Learn HTML → CSS → JavaScript → Build Projects";
+<h2>💻 Software Developer</h2>
 
-}
+<h3>Description</h3>
 
-else if(interest.includes("gaming")){
+<p>
+Software developers create websites,
+mobile apps and software solutions.
+</p>
 
-career="🎮 Game Developer";
+<h3>Skills Required</h3>
 
-roadmap="Learn game design → Unity → Build games";
+<p>
+HTML, CSS, JavaScript,
+Problem Solving,
+React
+</p>
 
-}
+<h3>Roadmap</h3>
 
-else if(interest.includes("art")){
+<p>
 
-career="🎨 Graphic Designer";
+1. Learn HTML<br>
+2. Learn CSS<br>
+3. Learn JavaScript<br>
+4. Build projects<br>
+5. Learn React<br>
+6. Build portfolio<br>
+7. Apply for internships
 
-roadmap="Learn Canva → Photoshop → Design projects";
+</p>
 
+<h3>Courses</h3>
+
+<p>
+
+• FreeCodeCamp Web Development<br>
+• CS50 Introduction<br>
+• JavaScript Beginner Course
+
+</p>
+
+<h3>Salary</h3>
+
+<p>
+
+Beginner:
+₹3–8 lakh/year
+
+</p>
+
+`;
 }
 
 else if(interest.includes("science")){
 
-career="🔬 Scientist";
+result=`
 
-roadmap="Study science → Research → Experiments";
+<h2>🔬 Scientist</h2>
+
+<h3>Description</h3>
+
+<p>
+Scientists study nature and discover
+new knowledge.
+</p>
+
+<h3>Skills Required</h3>
+
+<p>
+Research, analysis,
+critical thinking
+</p>
+
+<h3>Roadmap</h3>
+
+<p>
+
+1. Strong science basics<br>
+2. Degree in science<br>
+3. Research projects<br>
+4. Advanced studies
+
+</p>
+
+<h3>Courses</h3>
+
+<p>
+
+• Basic Physics<br>
+• Chemistry Fundamentals<br>
+• Research Methods
+
+</p>
+
+`;
 
 }
 
 else{
 
-career="❓ Explore different interests";
+result=`
 
-roadmap="Try coding, art, science or gaming";
+<h2>No result found</h2>
+
+<p>
+Try:
+coding, science, gaming, art
+</p>
+
+`;
 
 }
 
-document.getElementById("career").innerHTML=career;
-
-document.getElementById("roadmap").innerHTML=roadmap;
+document.getElementById("output")
+.innerHTML=result;
 
 }
 
